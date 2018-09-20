@@ -1,1 +1,1 @@
-"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk -fullscreen videoplayer.html
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk -fullscreen file:///%cd%/videoplayer.html
