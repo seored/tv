@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<video width="320" height="240" autoplay controls loop muted>
+<video controls id="myvideo" autoplay loop muted>
     <source src="movie.mp4" type="video/mp4">
 </video>
+<script type="text/javascript">
+     window.onload = function () {
+         var elem = document.getElementById("myvideo");
+         if (elem.requestFullscreen) {
+             elem.requestFullscreen();
+         } else if (elem.mozRequestFullScreen) {
+             elem.mozRequestFullScreen();
+         } else if (elem.webkitRequestFullscreen) {
+             elem.webkitRequestFullscreen();
+         }
+    };
+</script>
 </body>
 </html>
