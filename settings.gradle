@@ -1,4 +1,6 @@
 rootProject.name = 'tv'
 
 include 'app/admin-panel'
-
+include 'app/audio-service'
+include 'app/download-service'
+include 'app/video-service'
