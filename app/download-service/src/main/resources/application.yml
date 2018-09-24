@@ -1,0 +1,25 @@
+minio:
+  access-key: j3j57hTjSU99JPfTVpWYZU
+  secret-key: hjcQFX8n1yK1o7xgQoHh1mhneQ9FDKR2gC2X5eoL8uVY
+  bucket-name: moskalyan
+  endpoint: hb.bizmrg.com
+  external-endpoint: hb.bizmrg.com
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-back/back
+    port:
+    username: back
+    password: back
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        type: trace
+kafka:
+  bootstrap-servers: localhost:9092
+
