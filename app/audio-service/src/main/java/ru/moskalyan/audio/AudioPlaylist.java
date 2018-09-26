@@ -1,10 +1,15 @@
 package ru.moskalyan.audio;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 public class AudioPlaylist {
 
-    private AudioPlaylist next;
-    private AudioPlaylist prev;
-    private String song;
+    //"Settings > Build > Compiler > Annotation Processors"
+    @Getter @Setter(AccessLevel.PUBLIC) private AudioPlaylist next;
+    @Getter @Setter (AccessLevel.PUBLIC) private AudioPlaylist prev;
+    @Getter @Setter(AccessLevel.PUBLIC) private String song;
 
     public AudioPlaylist(String song) {
         this.song = song;
@@ -13,30 +18,6 @@ public class AudioPlaylist {
     }
 
     public boolean hasNext() {
-        return next == null;
-    }
-
-    public AudioPlaylist getNext() {
-        return next;
-    }
-
-    public void setNext(AudioPlaylist next) {
-        this.next = next;
-    }
-
-    public AudioPlaylist getPrev() {
-        return prev;
-    }
-
-    public void setPrev(AudioPlaylist prev) {
-        this.prev = prev;
-    }
-
-    public String getSong() {
-        return song;
-    }
-
-    public void setSong(String song) {
-        this.song = song;
+        return next != null;
     }
 }
