@@ -38,4 +38,5 @@ dependencies {
 	compile group: 'org.springframework.kafka', name: 'spring-kafka', version: springKafkaVarsion
 
 	testCompile group: 'org.springframework.kafka', name: 'spring-kafka-test', version: springKafkaVarsion
+	compile ('org.projectlombok:lombok:1.18.2')
 }
