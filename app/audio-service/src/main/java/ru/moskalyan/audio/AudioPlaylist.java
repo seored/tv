@@ -13,7 +13,7 @@ public class AudioPlaylist {
     }
 
     public boolean hasNext() {
-        return next == null;
+        return next != null;
     }
 
     public AudioPlaylist getNext() {
