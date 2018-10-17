@@ -15,9 +15,15 @@ public class DownloadKafkaListener {
     private FileService fileService;
 
     @KafkaListener(topics = {"moskalyan-download-video-topic"})
-    public Object downloadVideoListener(DownloadRequestDto requestDto) {
+    public void downloadVideoListener(DownloadRequestDto requestDto) {
         fileService.downloadVideo(Collections.singletonList("video/videoplayback.mp4"));
-        return null;
+
+    }
+
+    @KafkaListener(topics = {"moskalyan-download-audio-topic"})
+    public void downloadAudioListener(DownloadRequestDto requestDto) {
+        fileService.downloadVideo(Collections.singletonList("video/videoplayback.mp4"));
+
     }
 
 }

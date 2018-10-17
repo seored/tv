@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="http://yastatic.net/jquery/1.6.4/jquery.min.js"></script>
+</head>
+<body>
+<video controls id="video" autoplay muted>
+    <!--<source src="/Users/pavel/movie.mp4" type="video/mp4">-->
+</video>
+<script type="text/javascript">
+    //  window.onload = function () {
+    //      var elem = document.getElementById("myvideo");
+    //      if (elem.requestFullscreen) {
+    //          elem.requestFullscreen();
+    //      } else if (elem.mozRequestFullScreen) {
+    //          elem.mozRequestFullScreen();
+    //      } else if (elem.webkitRequestFullscreen) {
+    //          elem.webkitRequestFullscreen();
+    //      }
+    // };
+    // var result;
+    // $(document).ready(function() {
+
+        // $.ajax({
+        //     type: 'GET',
+        //     url: "http://localhost:8080/Users/pavel/video",
+        //     success: function (d) {
+        //         alert(d)
+        //         result = d;
+        //     }
+        // })
+        var video = document.getElementById('video');
+        var source = document.createElement('source');
+
+        var promise = getNext()
+        promise.then(function (value) {
+            alert(value)
+            source.setAttribute('src', value);
+
+            video.appendChild(source);
+    })
+
+
+
+        // video.play();
+
+        // setTimeout(function() {
+        //     video.pause();
+        //
+        //     source.setAttribute('src', result);
+        //
+        //     video.load();
+        //     video.play();
+        // }, 3000);
+    // });
+    video.addEventListener('ended', function () {
+        var promise = getNext()
+        promise.then(function (value) {
+            source.setAttribute('src', value);
+            video.appendChild(source);})
+    }, false);
+
+    function getNext() {
+        // var result = null;
+        // $.ajax({
+        //     type: 'GET',
+        //     url: "http://localhost:8080/Users/pavel/video",
+        //     success: function (d) {
+        //         alert(d)
+        //         result = d;
+        //     }
+        // })
+        return get("http://localhost:8080/Users/pavel/video").then(function(response) {
+            alert(response)
+            return response;
+        })
+    }
+
+    function get(url) {
+        return new Promise(function(succeed, fail) {
+            var request = new XMLHttpRequest();
+            request.open("GET", url, true);
+            request.addEventListener("load", function() {
+                if (request.status < 400)
+                    succeed(request.response);
+                else
+                    fail(new Error("Request failed: " + request.statusText));
+            });
+            request.addEventListener("error", function() {
+                fail(new Error("Network error"));
+            });
+            request.send();
+        });
+    }
+
+</script>
+</body>
+</html>
