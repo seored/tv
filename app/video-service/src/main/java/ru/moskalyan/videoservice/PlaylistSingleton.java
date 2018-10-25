@@ -17,11 +17,13 @@ public class PlaylistSingleton {
         start.setNext(next);
         Playlist next2 = new Playlist();
         next2.setVal("http://localhost:8080/Users/pavel/movie2.mp4");
-        next.setNext(next);
+        next.setNext(next2);
         next2.setNext(start);
+
+        current = start;
     }
 
-    public Playlist getCurrent() {
+    synchronized public Playlist getCurrent() {
         Playlist result = current;
         current = current.getNext();
         return result;
