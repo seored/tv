@@ -1,4 +1,4 @@
-package ru.moskalyan.adminpanel;
+package ru.moskalyan.videoservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

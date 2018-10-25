@@ -1,22 +1,25 @@
 package ru.moskalyan.videoservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class VideoController {
 
+    @Autowired
+    private PlaylistSingleton singleton;
+
     int i = 0;
-    String[] list = {"http://localhost:8080/Users/pavel/movie.mp4",
-            "http://localhost:8080/Users/pavel/movie1.mp4",
-            "http://localhost:8080/Users/pavel/movie2.mp4"};
 
     @RequestMapping("/video")
-    public String nextVideo() {
-        String result = list[i];
+    public ResponseDTO nextVideo() {
+        Playlist playlist = singleton.getCurrent();
+        ResponseDTO dto = new ResponseDTO();
+        dto.setSortId(i);
+        dto.setSrc(playlist.getVal());
+        dto.setType("video/mp4");
         i++;
-        return result;
+        return dto;
     }
 }

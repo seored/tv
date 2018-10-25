@@ -1,4 +1,4 @@
-package ru.moskalyan.adminpanel.entity;
+package ru.moskalyan.videoservice.entity;
 
 //import javax.persistence.Entity;
 //import javax.persistence.Table;

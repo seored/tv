@@ -1,4 +1,4 @@
-package ru.moskalyan.adminpanel;
+package ru.moskalyan.videoservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
